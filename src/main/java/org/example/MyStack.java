@@ -3,6 +3,8 @@ package org.example;
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 
+
+
 public class MyStack<E>  {
 
     private ArrayList<E> delegate;
@@ -17,10 +19,14 @@ public class MyStack<E>  {
     }
 
     public E pop() {
-        if (delegate.isEmpty()) throw new EmptyStackException();
+        if (isEmpty()) throw new EmptyStackException();
         E e = delegate.get(delegate.size() - 1);
         delegate.remove(delegate.size() -1 );
         return e;
+    }
+
+    private boolean isEmpty() {
+        return delegate.size() == 0;
     }
 
     public int size() {
